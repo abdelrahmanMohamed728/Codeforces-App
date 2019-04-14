@@ -28,10 +28,20 @@ public class standingsAdapter extends ArrayAdapter<Contestant> {
         txt1.setText(c.getRank());
         txt2.setText(c.getName());
         txt3.append(String.valueOf(c.getRating()));
-        if (c.getRating()>2300)
+        if (c.getRating()>=2500)
         {
             txt2.setTextColor(Color.parseColor("#da0505"));
             txt1.setTextColor(Color.parseColor("#da0505"));
+        }
+        else if (c.getRating()>=2100)
+        {
+            txt2.setTextColor(Color.parseColor("#FFA500"));
+            txt1.setTextColor(Color.parseColor("#FFA500"));
+        }
+        else if (c.getRating()>=1900)
+        {
+            txt2.setTextColor(Color.parseColor("#800080"));
+            txt1.setTextColor(Color.parseColor("#800080"));
         }
         return convertView;
 

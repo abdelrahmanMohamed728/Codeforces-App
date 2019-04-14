@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -59,11 +60,18 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         listView = findViewById(R.id.list1);
-
         list = new ArrayList<>();
         LoadData("https://codeforces.com/api/user.ratedList?activeOnly=true");
         adapter = new standingsAdapter(Main2Activity.this,list);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(Main2Activity.this,UserActivity.class);
+                intent.putExtra("Username",list.get(position).getName());
+                startActivity(intent);
+            }
+        });
     }
     public void LoadData(String url)
     {
