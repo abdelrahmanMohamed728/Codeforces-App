@@ -48,8 +48,8 @@ public class userAdapter extends ArrayAdapter<User> {
             maxRating.setTextColor(Color.parseColor("#da0505"));
         }
         Picasso.with(getContext())
-                .load(c.getPicURL())
-                .resize(50,50).into(image);
+                .load("http:"+c.getPicURL())
+                .resize(120,120).into(image);
         return convertView;
 
     }

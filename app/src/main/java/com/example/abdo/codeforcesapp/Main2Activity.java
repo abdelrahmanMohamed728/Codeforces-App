@@ -84,7 +84,7 @@ public class Main2Activity extends AppCompatActivity {
               try {
                   progress1.setVisibility(View.INVISIBLE);
                   JSONArray array = response.getJSONArray("result");
-                  for (int i = 0; i < 50; i++) {
+                  for (int i = 0; i < 1000; i++) {
                       JSONObject o = array.getJSONObject(i);
                       list.add(new Contestant(o.getString("handle"), o.getInt("rating"), o.getString("rank")));
                   }
