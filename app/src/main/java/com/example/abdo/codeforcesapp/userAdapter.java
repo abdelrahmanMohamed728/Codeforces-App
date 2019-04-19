@@ -43,9 +43,64 @@ public class userAdapter extends ArrayAdapter<User> {
             rating.setTextColor(Color.parseColor("#da0505"));
             rank.setTextColor(Color.parseColor("#da0505"));
         }
+        else    if (c.getRating()>=2100)
+        {
+            username.setTextColor(Color.parseColor("#FFA500"));
+            rating.setTextColor(Color.parseColor("#FFA500"));
+            rank.setTextColor(Color.parseColor("#FFA500"));
+        }
+        else   if (c.getRating()>=1900) {
+            username.setTextColor(Color.parseColor("#800080"));
+            rating.setTextColor(Color.parseColor("#800080"));
+            rank.setTextColor(Color.parseColor("#800080"));
+        }
+        else if (c.getRating()>=1600)
+        {
+            username.setTextColor(Color.parseColor("#0000FF"));
+            rating.setTextColor(Color.parseColor("#0000FF"));
+            rank.setTextColor(Color.parseColor("#0000FF"));
+        }
+        else if (c.getRating()>=1400)
+        {
+            username.setTextColor(Color.parseColor("#89cff0"));
+            rating.setTextColor(Color.parseColor("#89cff0"));
+            rank.setTextColor(Color.parseColor("#89cff0"));
+        }
+        else if (c.getRating()>=1200)
+        {
+            username.setTextColor(Color.parseColor("#008000"));
+            rating.setTextColor(Color.parseColor("#008000"));
+            rank.setTextColor(Color.parseColor("#008000"));
+        }
         if (c.getMaxRating()>=2500)
         {
             maxRating.setTextColor(Color.parseColor("#da0505"));
+        }
+
+      else  if (c.getMaxRating()>=2100)
+        {
+            maxRating.setTextColor(Color.parseColor("#FFA500"));
+        }
+
+
+       else if (c.getMaxRating()>=1900)
+        {
+            maxRating.setTextColor(Color.parseColor("#800080"));
+        }
+
+       else if (c.getMaxRating()>=1600)
+        {
+            maxRating.setTextColor(Color.parseColor("#0000FF"));
+        }
+
+       else if (c.getMaxRating()>=1400)
+        {
+            maxRating.setTextColor(Color.parseColor("#89cff0"));
+        }
+
+       else if (c.getMaxRating()>=1200)
+        {
+            maxRating.setTextColor(Color.parseColor("#008000"));
         }
         Picasso.with(getContext())
                 .load("http:"+c.getPicURL())

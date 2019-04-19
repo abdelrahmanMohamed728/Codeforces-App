@@ -42,8 +42,16 @@
                android:layout_weight="1"
                android:src="@drawable/standings"
                android:background="#453fe4"
-              />
 
+              />
+           <ImageView
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_weight="1"
+               android:src="@drawable/search"
+               android:background="#fff"
+               android:id="@+id/img2"
+               />
 
        </LinearLayout>
 </LinearLayout>

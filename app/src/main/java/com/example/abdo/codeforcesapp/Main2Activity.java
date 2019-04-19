@@ -54,12 +54,19 @@ public class Main2Activity extends AppCompatActivity {
     StringBuffer buffer1;
     String finalResult;
     ProgressBar progress1;
-
+    ImageView img2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         listView = findViewById(R.id.list1);
+        img2 = findViewById(R.id.img2);
+        img2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Main2Activity.this,SearchActivity.class));
+            }
+        });
         list = new ArrayList<>();
         LoadData("https://codeforces.com/api/user.ratedList?activeOnly=true");
         adapter = new standingsAdapter(Main2Activity.this,list);
@@ -84,7 +91,7 @@ public class Main2Activity extends AppCompatActivity {
               try {
                   progress1.setVisibility(View.INVISIBLE);
                   JSONArray array = response.getJSONArray("result");
-                  for (int i = 0; i < 1000; i++) {
+                  for (int i = 0; i < 100; i++) {
                       JSONObject o = array.getJSONObject(i);
                       list.add(new Contestant(o.getString("handle"), o.getInt("rating"), o.getString("rank")));
                   }

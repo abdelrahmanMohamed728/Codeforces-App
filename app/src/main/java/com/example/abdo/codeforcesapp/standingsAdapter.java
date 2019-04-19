@@ -43,6 +43,21 @@ public class standingsAdapter extends ArrayAdapter<Contestant> {
             txt2.setTextColor(Color.parseColor("#800080"));
             txt1.setTextColor(Color.parseColor("#800080"));
         }
+        else if (c.getRating()>=1600)
+        {
+            txt2.setTextColor(Color.parseColor("#0000FF"));
+            txt1.setTextColor(Color.parseColor("#0000FF"));
+        }
+        else if (c.getRating()>=1400)
+        {
+            txt2.setTextColor(Color.parseColor("#89cff0"));
+            txt1.setTextColor(Color.parseColor("#89cff0"));
+        }
+        else if (c.getRating()>=1200)
+        {
+            txt2.setTextColor(Color.parseColor("#008000"));
+            txt1.setTextColor(Color.parseColor("#008000"));
+        }
         return convertView;
 
     }

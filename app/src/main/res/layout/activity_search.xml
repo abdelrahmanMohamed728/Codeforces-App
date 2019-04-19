@@ -4,33 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Main3Activity"
+    tools:context=".SearchActivity"
     android:orientation="vertical">
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="Home"
-        android:layout_weight="2"
-        android:gravity="center"
-        android:textColor="#000"
-        android:textSize="20sp"
-        android:background="#453fe4"
+        android:orientation="vertical"
+        android:layout_weight="13">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:hint="Enter Handle"
+        android:layout_margin="10dp"
+        android:id="@+id/searchText"
         />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="11">
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/list1"></ListView>
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:id="@+id/progress1"
-            android:visibility="invisible"/>
-    </RelativeLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Search"
+        android:id="@+id/searchBtn"
+        />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -42,15 +39,16 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/standings"
-            android:id="@+id/home1"
+            android:background="#fff"
+            android:id="@+id/img1"
 
             />
-
         <ImageView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/home"
+            android:src="@drawable/search"
+
             android:background="#453fe4"
             />
 
