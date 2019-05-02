@@ -27,12 +27,10 @@ public class UserActivity extends AppCompatActivity {
     ListView listView;
     ArrayList<User> list;
     userAdapter adapter;
-    URL url;
-    HttpURLConnection urlConnection;
-    InputStream inputStream;
+    ListView listView2;
+    ArrayList<Submission>list2;
     String result;
-    StringBuffer buffer1;
-    String finalResult;
+    SubmissionAdapter adapter2;
     ProgressBar progress1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +38,51 @@ public class UserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user);
         listView = findViewById(R.id.list2);
         list = new ArrayList<>();
+        listView2 = findViewById(R.id.list3);
+        list2 = new ArrayList<>();
         LoadData("https://codeforces.com/api/user.info?handles="+getIntent().getStringExtra("Username"));
+        LoadData2("https://codeforces.com/api/user.status?handle="+getIntent().getStringExtra("Username")+"&from=1&count=100");
         adapter = new userAdapter(UserActivity.this,list);
         listView.setAdapter(adapter);
+        adapter2=new SubmissionAdapter(UserActivity.this,list2);
+        listView2.setAdapter(adapter2);
+    }
+    public void LoadData2(String url)
+    {
+
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+
+                    JSONArray array = response.getJSONArray("result");
+                    for (int i =0;i<array.length();i++)
+                    {
+                        JSONObject object = array.getJSONObject(i);
+                        String id = object.getString("id");
+                        String lang = object.getString("programmingLanguage");
+                        String result = object.getString("verdict");
+                        object = object.getJSONObject("problem");
+                        String problem = object.getString("name");
+                        list2.add(new Submission(id,problem,lang,result));
+                    }
+                    adapter2.notifyDataSetChanged();
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                    Log.e("tag",e.toString());
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
     }
     public void LoadData(String url)
     {
